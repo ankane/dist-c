@@ -92,7 +92,10 @@ void test_normal_cdf_negative_std_dev(void) {
 
 void test_normal_ppf(void) {
     double inputs[] = {0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0};
-    double expected[] = {-INFINITY, -1.28155, -0.84162, -0.5244, -0.25335, 0.0, 0.25335, 0.5244, 0.84162, 1.28155, INFINITY};
+    double expected[] = {
+        -INFINITY, -1.28155, -0.84162, -0.5244, -0.25335, 0.0,
+        0.25335,   0.5244,   0.84162,  1.28155, INFINITY
+    };
     for (size_t i = 0; i < sizeof(inputs) / sizeof(double); i++) {
         assert_in_delta(normal_ppf(inputs[i], 0, 1), expected[i], 0.00001);
     }
@@ -107,7 +110,10 @@ void test_normal_ppf_test_data(void) {
 
 void test_normal_ppf_mean_std_dev(void) {
     double inputs[] = {0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0};
-    double expected[] = {-INFINITY, -1.5631, -0.68324, -0.0488, 0.49331, 1.0, 1.50669, 2.0488, 2.68324, 3.5631, INFINITY};
+    double expected[] = {
+        -INFINITY, -1.5631, -0.68324, -0.0488, 0.49331, 1.0,
+        1.50669,   2.0488,  2.68324,  3.5631,  INFINITY
+    };
     for (size_t i = 0; i < sizeof(inputs) / sizeof(double); i++) {
         assert_in_delta(normal_ppf(inputs[i], 1, 2), expected[i], 0.00001);
     }
@@ -227,7 +233,10 @@ void test_students_t_cdf_nan(void) {
 
 void test_students_t_ppf_one(void) {
     double inputs[] = {0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0};
-    double expected[] = {-INFINITY, -3.07768, -1.37638, -0.72654, -0.32492, 0.0, 0.32492, 0.72654, 1.37638, 3.07768, INFINITY};
+    double expected[] = {
+        -INFINITY, -3.07768, -1.37638, -0.72654, -0.32492, 0.0,
+        0.32492,   0.72654,  1.37638,  3.07768,  INFINITY
+    };
     for (size_t i = 0; i < sizeof(inputs) / sizeof(double); i++) {
         assert_in_delta(students_t_ppf(inputs[i], 1), expected[i], 0.00001);
     }
@@ -235,7 +244,10 @@ void test_students_t_ppf_one(void) {
 
 void test_students_t_ppf_two(void) {
     double inputs[] = {0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0};
-    double expected[] = {-INFINITY, -1.88562, -1.06066, -0.61721, -0.28868, 0.0, 0.28868, 0.61721, 1.06066, 1.88562, INFINITY};
+    double expected[] = {
+        -INFINITY, -1.88562, -1.06066, -0.61721, -0.28868, 0.0,
+        0.28868,   0.61721,  1.06066,  1.88562,  INFINITY
+    };
     for (size_t i = 0; i < sizeof(inputs) / sizeof(double); i++) {
         assert_in_delta(students_t_ppf(inputs[i], 2), expected[i], 0.00001);
     }
@@ -243,7 +255,10 @@ void test_students_t_ppf_two(void) {
 
 void test_students_t_ppf_thirty(void) {
     double inputs[] = {0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0};
-    double expected[] = {-INFINITY, -1.31042, -0.85377, -0.53002, -0.25561, 0.0, 0.25561, 0.53002, 0.85377, 1.31042, INFINITY};
+    double expected[] = {
+        -INFINITY, -1.31042, -0.85377, -0.53002, -0.25561, 0.0,
+        0.25561,   0.53002,  0.85377,  1.31042,  INFINITY
+    };
     for (size_t i = 0; i < sizeof(inputs) / sizeof(double); i++) {
         assert_in_delta(students_t_ppf(inputs[i], 30), expected[i], 0.00001);
     }
@@ -251,7 +266,10 @@ void test_students_t_ppf_thirty(void) {
 
 void test_students_t_ppf_non_integer(void) {
     double inputs[] = {0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0};
-    double expected[] = {-INFINITY, -1.73025, -1.01016, -0.59731, -0.28146, 0.0, 0.28146, 0.59731, 1.01016, 1.73025, INFINITY};
+    double expected[] = {
+        -INFINITY, -1.73025, -1.01016, -0.59731, -0.28146, 0.0,
+        0.28146,   0.59731,  1.01016,  1.73025,  INFINITY
+    };
     for (size_t i = 0; i < sizeof(inputs) / sizeof(double); i++) {
         assert_in_delta(students_t_ppf(inputs[i], 2.5), expected[i], 0.0002);
     }
@@ -259,7 +277,10 @@ void test_students_t_ppf_non_integer(void) {
 
 void test_students_t_ppf_infinity(void) {
     double inputs[] = {0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0};
-    double expected[] = {-INFINITY, -1.28155, -0.84162, -0.5244, -0.25335, 0.0, 0.25335, 0.5244, 0.84162, 1.28155, INFINITY};
+    double expected[] = {
+        -INFINITY, -1.28155, -0.84162, -0.5244, -0.25335, 0.0,
+        0.25335,   0.5244,   0.84162,  1.28155, INFINITY
+    };
     for (size_t i = 0; i < sizeof(inputs) / sizeof(double); i++) {
         assert_in_delta(students_t_ppf(inputs[i], INFINITY), expected[i], 0.00001);
     }
