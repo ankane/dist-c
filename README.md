@@ -33,17 +33,17 @@ Include the header
 ### Normal
 
 ```c
-normal_pdf(x, mean, std_dev);
-normal_cdf(x, mean, std_dev);
-normal_ppf(p, mean, std_dev);
+double pdf = normal_pdf(x, mean, std_dev);
+double cdf = normal_cdf(x, mean, std_dev);
+double ppf = normal_ppf(p, mean, std_dev);
 ```
 
 ### Student’s t
 
 ```c
-students_t_pdf(x, df);
-students_t_cdf(x, df);
-students_t_ppf(p, df);
+double pdf = students_t_pdf(x, df);
+double cdf = students_t_cdf(x, df);
+double ppf = students_t_ppf(p, df);
 ```
 
 ## References
